@@ -1,6 +1,7 @@
 import React from 'react'
 import { hightlightsSlides } from "../constants";
 import { useEffect, useRef, useState } from "react";
+import { useGSAP } from '@gsap/react';
 
 
 const VideoCarousel = () => {
@@ -53,20 +54,22 @@ const VideoCarousel = () => {
 
   }, [videoId, startPlay])
 
+
   return (
     <>
       < div className='flex items-center' >
         {hightlightsSlides.map((list, i) => (
 
-          <div key={list.id} id="slider">
+          <div key={list.id} id="slider" className='sm:pr-20 pr-10'>
             <div className="video-carousel_container">
               <div className="w-full h-full flex-center rounded-3xl overflow-hidden bg-black">
 
                 <video 
                   id='video' 
                   autoPlay 
-                  muted 
                   playsInline={true}
+                  preload='auto'  
+                  muted 
                   ref={(el) => (videoRef.current[i] = el)}
                   onPlay={() => {
                     setVideo((prevVideo) => ({
@@ -82,7 +85,7 @@ const VideoCarousel = () => {
 
               <div className="absolute top-12 left-[5%] z-10">
                 {list.textLists.map((text, i) => (
-                  <p key={i} className='md:text-2xl text-xl font-medium'>
+                  <p id='textHighlight' key={i} className='md:text-2xl text-xl font-medium'>
                     {text}
                   </p>
                 ))}

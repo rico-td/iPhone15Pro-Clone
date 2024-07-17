@@ -8,9 +8,11 @@ const Highlights = () => {
 
   useGSAP(() => {
     gsap.to("#title", {opacity: 1, y: 0, duration: 1});
-    gsap.to(".link", {opacity:1, y:0, duration: 1.2, stagger: 0.25});
-
-    gsap
+    gsap.to(".link", {opacity:1, y:0, duration: 1.5,  scrollTrigger: {
+      trigger: "#title",
+      start: "top 75%", 
+      
+    }});
   }, [])
 
 
