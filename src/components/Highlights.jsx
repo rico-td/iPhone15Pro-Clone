@@ -32,18 +32,17 @@ const Highlights = () => {
     // }})
     // .to("#box", {x: 500, duration: 1, delay: 1, ease: "elastic"})
     // .to("#box", {rotate: 0, duration: 1, delay: 1})
-    .to("#box", {
-      motionPath: {
-        path: "#path",
-        align: "#path",
-        alignOrigin: [0.5, 0.5],
-        autoRotate: true,
-      },
-      transformOrigin: "50% 50%",
-      duration: 5,
-      ease: "power1.inOut",
-    });
-
+    // .to("#box", {
+    //   motionPath: {
+    //     path: "#path",
+    //     align: "#path",
+    //     alignOrigin: [0.5, 0.5],
+    //     autoRotate: true,
+    //   },
+    //   transformOrigin: "50% 50%",
+    //   duration: 5,
+    //   ease: "power1.inOut",
+    // });
   }, [])
 
   return (
