@@ -27,7 +27,7 @@ const Highlights = () => {
             appendClass: "highlight-period",
          });
 
-      // testing animations
+      // testing animationsa
       var tl1 = gsap.timeline();
       tl1;
       // .to("#box", {x: 200, duration: 1, delay: 1, ease: "elastic"})
