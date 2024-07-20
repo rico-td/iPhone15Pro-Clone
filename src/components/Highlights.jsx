@@ -62,7 +62,7 @@ const Highlights = () => {
             <div id="trigger-container" className="screen-max-with">
                <div className="mb-12 w-full md:flex justify-between items-end">
                   <h1 id="title" className="section-heading">
-                     Get highlights
+                     Get the highlights
                      <span id="heading-period" className="highlight-period">
                         .
                      </span>
