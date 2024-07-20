@@ -10,16 +10,22 @@ const Highlights = () => {
    useGSAP(() => {
       gsap.registerPlugin(MotionPathPlugin);
 
-      gsap.to("#title", { opacity: 1, y: 0, duration: 1 });
-      gsap.to(".link", {
-         opacity: 1,
-         y: 0,
-         duration: 1.5,
+      const tl = gsap.timeline({
          scrollTrigger: {
-            trigger: "#title",
-            start: "top 75%",
+            trigger: "#trigger-container",
+            start: "top bottom",
+            toggleActions: "play none none reset",
          },
       });
+
+      tl.to("#title", { opacity: 1, y: 0, duration: 1 })
+
+         .to(".link", { opacity: 1, y: 0, duration: 1, stagger: 0.15 }, "-=0.5")
+         .to("#heading-period", {
+            opacity: 0.7,
+            duration: 3,
+            appendClass: "highlight-period",
+         });
 
       // testing animations
       var tl1 = gsap.timeline();
@@ -53,10 +59,13 @@ const Highlights = () => {
             className="w-screen, 
       overflow-hidden h-full common-padding bg-zinc"
          >
-            <div className="screen-max-with">
+            <div id="trigger-container" className="screen-max-with">
                <div className="mb-12 w-full md:flex justify-between items-end">
                   <h1 id="title" className="section-heading">
-                     Get highlights.
+                     Get highlights
+                     <span id="heading-period" className="highlight-period">
+                        .
+                     </span>
                   </h1>
                   <div className="flex flex-wrap items-end gap-5 mt-3">
                      <p className="link ">
