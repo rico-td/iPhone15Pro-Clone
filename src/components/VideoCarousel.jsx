@@ -152,7 +152,7 @@ const VideoCarousel = () => {
          case "pause":
             setVideo((pre) => ({ ...pre, isPlaying: !pre.isPlaying }));
             break;
-         case "video-play":
+         case "play":
             setVideo((pre) => ({
                ...pre,
                isPlaying: !pre.isPlaying,
@@ -231,8 +231,8 @@ const VideoCarousel = () => {
                      isLastVideo
                         ? () => handleProcess("video-reset")
                         : !isPlaying
-                        ? () => handleProcess("video-play")
-                        : () => handleProcess("video-pause")
+                        ? () => handleProcess("play")
+                        : () => handleProcess("pause")
                   }
                ></img>
             </button>
