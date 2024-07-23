@@ -1,15 +1,14 @@
+// GSAP imports
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React from "react";
+import { ScrollTrigger } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger);
+
 import { rightImg, watchImg } from "../utils";
 import VideoCarousel from "./VideoCarousel";
 
-import MotionPathPlugin from "gsap/MotionPathPlugin";
-
 const Highlights = () => {
    useGSAP(() => {
-      gsap.registerPlugin(MotionPathPlugin);
-
       const tl = gsap.timeline({
          scrollTrigger: {
             trigger: "#trigger-container",
@@ -26,30 +25,6 @@ const Highlights = () => {
             duration: 3,
             appendClass: "highlight-period",
          });
-
-      // testing animationsa
-      var tl1 = gsap.timeline();
-      tl1;
-      // .to("#box", {x: 200, duration: 1, delay: 1, ease: "elastic"})
-      // .to("#box", {rotate: 360, duration: 10, delay: 1, borderRadius: 100, motionPath: {
-      //   path: "M 0 0 L -200 -200 L 200 -200 Z",
-      //   align: "center",
-      //   alignOrigin: [0.5, 0.5],
-      //   autoRotate: 90
-      // }})
-      // .to("#box", {x: 500, duration: 1, delay: 1, ease: "elastic"})
-      // .to("#box", {rotate: 0, duration: 1, delay: 1})
-      // .to("#box", {
-      //   motionPath: {
-      //     path: "#path",
-      //     align: "#path",
-      //     alignOrigin: [0.5, 0.5],
-      //     autoRotate: true,
-      //   },
-      //   transformOrigin: "50% 50%",
-      //   duration: 5,
-      //   ease: "power1.inOut",
-      // });
    }, []);
 
    return (
@@ -82,11 +57,6 @@ const Highlights = () => {
                <VideoCarousel />
             </div>
          </section>
-
-         {/* <div className='w-full h-[150px] flex justify-start'>
-        <div id='box' className='bg-white w-[150px] h-[150px]'></div>
-        <path id="path" fill="none" d="M8,102 C15,83 58,25 131,24 206,24 233,63 259,91 292,125 328,155 377,155 464,155 497,97 504,74"/>
-      </div> */}
       </div>
    );
 };
